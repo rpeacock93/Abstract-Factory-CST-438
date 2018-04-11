@@ -1,11 +1,11 @@
 #board {
-	font-size: 150%;
+	font-size: 175%;
 	color: #66D9EF;
 }
 
 #container {
-	width: 600px;
-	height: 750px;
+	width: 650px;
+	height: 800px;
 	border: black solid 2px;
 	position: absolute;
 	top: 0; bottom: 0;

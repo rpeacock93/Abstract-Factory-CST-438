@@ -18,12 +18,12 @@ function createLihrt() {
 
 	        	if ($row == ($_POST["guessX"] -1) && $col == ($_POST["guessY"] - 1)) {
 
-	        		echo $lihrt[$row][$col] = "<span id='hurkle'>&block;&nbsp;&nbsp;</span>";
+	        		echo $lihrt[$row][$col] = "<span id='hurkle'>&#x2B1B;&nbsp;&nbsp;</span>";
 
 	        	}
 	        	else {
 
-	        		echo $lihrt[$row][$col] = '&block;&nbsp;&nbsp;';
+	        		echo $lihrt[$row][$col] = '&#x2B1C;&nbsp;&nbsp;';
 	        	}
 	        }
 	        echo "<br>";
