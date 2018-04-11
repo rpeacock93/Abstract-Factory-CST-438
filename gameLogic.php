@@ -1,13 +1,14 @@
 <?php 
 
+
+// global variable for hint string
 $hint;
 
+// hard coding global hurkle coordinates
 $GLOBALS['xCoord'] = 4;
 $GLOBALS['yCoord'] = 5;
 
-
-
-function blankLihrt() {
+function drawLihrt() {
 	$arrlength = 10;
 
 	$lihrt = array 
@@ -15,36 +16,14 @@ function blankLihrt() {
 		array(),array(),array(),array(),array(),
 		array(),array(),array(),array(),array()
 	);
-
-	echo "<span id='board'>";
-
-	for ($col = 0; $col < $arrlength; $col++) {
-	        for ($row = 0; $row < $arrlength; $row++) {
-	        	echo $lihrt[$row][$col] = '&#x2B1C;&nbsp;&nbsp;';
-	        }
-	        echo "<br>";
-	    }
-	    echo "</span>";
-
-	    echo "<br>";
-
-	}
-
-function createLihrt() {
-	$arrlength = 10;
-
-	$lihrt = array 
-	(
-		array(),array(),array(),array(),array(),
-		array(),array(),array(),array(),array()
-	);
+	
 
 	echo "<span id='board'>";
 
 	for ($col = 0; $col < $arrlength; $col++) {
 	        for ($row = 0; $row < $arrlength; $row++) {
 
-	        	if ($row == ($_POST["guessX"] -1) && $col == ($_POST["guessY"] - 1)) {
+	        	if (!empty($_POST['guessX']) && $row == ($_POST["guessX"] -1) && $col == ($_POST["guessY"] - 1)) {
 
 	        		echo $lihrt[$row][$col] = "<span id='hurkle'>&#x2B1B;&nbsp;&nbsp;</span>";
 

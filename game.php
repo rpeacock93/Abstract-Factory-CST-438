@@ -23,8 +23,15 @@
 
 			<?php 
 
-			createLihrt();
-			getGuess();	
+			drawLihrt();
+
+			if (!empty($_POST['guessX'])) {
+				getGuess();	
+			}
+			else {
+				echo '<span class="output">Take a guess</span>';
+			}
+			
 
 			 ?>
 

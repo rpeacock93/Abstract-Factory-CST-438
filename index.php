@@ -24,7 +24,7 @@
 
 			 ?>
 
-			<form action="blank.php">
+			<form action="game.php">
 
 				<input id="button" type="submit" value="Start Game">
 
