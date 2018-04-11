@@ -1,4 +1,4 @@
-<?php include('gameSetup.php'); ?>
+<?php include('gameLogic.php'); ?>
 
 <!DOCTYPE html>
 <html>

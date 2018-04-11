@@ -40,12 +40,12 @@ function createLihrt() {
 
 function hidHurkle() {
 
-	// $GLOBALS['xCoord'] = rand(1, 10);
-	// $GLOBALS['yCoord'] = rand(1, 10);
-
 	// Hard Code Test
 	$GLOBALS['xCoord'] = 3;
 	$GLOBALS['yCoord'] = 5;
+
+	// $GLOBALS['xCoord'] = rand(1, 10);
+	// $GLOBALS['yCoord'] = rand(1, 10);
 
 }
 
@@ -120,11 +120,6 @@ function giveHint()	{
 		}
 
 	}
-
-	
-
-
-	
 
 }
 
