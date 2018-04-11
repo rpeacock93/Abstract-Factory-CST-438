@@ -11,7 +11,7 @@
 </head>
 	<body>
 
-		<div id="info-container" >
+		<div id="container" >
 
 			<h1 class="strokeme">Find Hurkle</h1>
 

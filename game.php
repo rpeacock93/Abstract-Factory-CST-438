@@ -1,5 +1,7 @@
 <?php include('gameLogic.php'); ?>
 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +12,11 @@
 </head>
 	<body>
 
-
-
 		<div id="container" >
 
-			
 			<h1 class="strokeme">Find Hurkle</h1>
 
-			<span class="output">Wins: Losses: </span>
+			
 			<br>
 			<br>
 
@@ -29,10 +28,15 @@
 				getGuess();	
 			}
 			else {
-				echo '<span class="output">Take a guess</span>';
+				echo '<span class="output">Take a guess</span><br>';
+				Reset_All();
 			}
-			
 
+				
+
+			echo '<span class="output"> Player Moves: '.$_SESSION['intPlayerMoves'].'</span>';
+
+		
 			 ?>
 
 			 <br>
@@ -43,10 +47,8 @@
 	            <span class="guess">Row: </span><input class="guess" type="text" name="guessY">
 	            <span class="guess">Col: </span><input class="guess" type="text" name="guessX"><br>
 	            <br>
-	            <input id="button" type="submit">
+	            <input id="button" type="submit" value="Look">
 	        </form>
-
-			 
 
 		</div>
 

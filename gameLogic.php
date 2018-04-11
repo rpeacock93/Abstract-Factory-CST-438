@@ -1,12 +1,48 @@
 <?php 
 
-
-// global variable for hint string
+// global variables
 $hint;
 
 // hard coding global hurkle coordinates
-$GLOBALS['xCoord'] = 4;
-$GLOBALS['yCoord'] = 5;
+// $_SESSION['intHurkleX'] = 4;
+// $_SESSION['intHurkleY'] = 5;
+
+function Reset_All (){
+	$_SESSION['intHurkleX'] = 0;
+	$_SESSION['intHurkleY'] = 0;
+	$_SESSION['intPlayerMoves'] = 7;
+	$_SESSION['intPlayerWin'] = false;
+}
+
+	session_start();
+	
+	/*Initialize variables*/
+	if(!isset($_SESSION['intPlayerScore'])) {
+		$_SESSION['intPlayerWins'] = 0;
+	}
+	if(!isset($_SESSION['intPlayerScore'])) {
+		$_SESSION['intPlayerLoses'] = 0;
+	}
+	if(!isset($_SESSION['intPlayerMoves'])) {
+		$_SESSION['intPlayerMoves'] = 7;
+	}
+	if(!isset($_SESSION['intPlayerWin'])) {
+		$_SESSION['intPlayerWin'] = false;
+	}
+	
+	/*Set Hurkle location*/
+	if(!isset($_SESSION['intHurkleX'])) {
+		$_SESSION['intHurkleX'] = rand(1,10);
+	}
+	if(!isset($_SESSION['intHurkleY'])) {
+		$_SESSION['intHurkleY'] = rand(1,10);
+	}
+	if ($_SESSION['intHurkleX'] == 0) {
+		$_SESSION['intHurkleX'] = rand(1,10);
+	}
+	if ($_SESSION['intHurkleY'] == 0) {
+		$_SESSION['intHurkleY'] = rand(1,10);
+	}
 
 function drawLihrt() {
 	$arrlength = 10;
@@ -41,16 +77,6 @@ function drawLihrt() {
 
 	}
 
-function hideHurkle() {
-
-	// Hard Code Test
-	// $GLOBALS['xCoord'] = 3;
-	// $GLOBALS['yCoord'] = 5;
-
-	$GLOBALS['xCoord'] = rand(1, 10);
-	$GLOBALS['yCoord'] = rand(1, 10);
-
-}
 
 function getGuess() {
 
@@ -61,71 +87,79 @@ function getGuess() {
 
 
 	echo '<span class="output"> Your guess: ', '( ', $_POST["guessY"], ' , ', $_POST["guessX"], ' ) </span><br>' ;
-	echo '<span class="output"> Hide: ( '.$GLOBALS['yCoord'].' , '.$GLOBALS['xCoord'].' ) </span><br>';
-	echo '<span class="output"> Hint: '.$GLOBALS['hint'].'</span>';
+	echo '<span class="output"> Hide: ( '.$_SESSION['intHurkleY'].' , '.$_SESSION['intHurkleX'].' ) </span><br>';
+	echo '<span class="output"> Hint: '.$GLOBALS['hint'].'</span><br>';
 
 }
 
 function giveHint()	{
 
-	if(($_POST["guessX"] == $GLOBALS['xCoord']) && ($_POST["guessY"] == $GLOBALS['yCoord'])) {
+	if(($_POST["guessX"] == $_SESSION['intHurkleX']) && ($_POST["guessY"] == $_SESSION['intHurkleY'])) {
 		$GLOBALS['hint'] = "You Win!";
 	}
 	else {
-		if ($_POST["guessX"] == $GLOBALS['xCoord']) {
-			
-			if ($_POST["guessY"] > $GLOBALS['yCoord']) {
+		$_SESSION['intPlayerMoves']--;
+		if ($_SESSION['intPlayerMoves'] > 0) {
+			if ($_POST["guessX"] == $_SESSION['intHurkleX']) {
 				
-				$GLOBALS['hint'] = "Go North";
+				if ($_POST["guessY"] > $_SESSION['intHurkleY']) {
+					
+					$GLOBALS['hint'] = "Go North";
+				}
+				else if ($_POST["guessY"] < $_SESSION['intHurkleY']) {
+					
+					$GLOBALS['hint'] = "Go South";
+				}
 			}
-			else if ($_POST["guessY"] < $GLOBALS['yCoord']) {
+			else if ($_POST["guessY"] == $_SESSION['intHurkleY']) {
 				
-				$GLOBALS['hint'] = "Go South";
+				if ($_POST["guessX"] < $_SESSION['intHurkleX']) {
+					
+					$GLOBALS['hint'] = "Go East";
+				}
+				else if ($_POST["guessX"] > $_SESSION['intHurkleX']) {
+					
+					$GLOBALS['hint'] = "Go West";
+				}
 			}
-		}
-		else if ($_POST["guessY"] == $GLOBALS['yCoord']) {
-			
-			if ($_POST["guessX"] < $GLOBALS['xCoord']) {
+			else if ($_POST["guessY"] < $_SESSION['intHurkleY']) {
 				
-				$GLOBALS['hint'] = "Go East";
-			}
-			else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
+				if ($_POST["guessX"] < $_SESSION['intHurkleX']) {
+					
+					$GLOBALS['hint'] = "Go Southeast";
+				}
 				
-				$GLOBALS['hint'] = "Go West";
+				else if ($_POST["guessX"] > $_SESSION['intHurkleX']) {
+					
+					$GLOBALS['hint'] = "Go Southwest";
+				}
 			}
-		}
-		else if ($_POST["guessY"] < $GLOBALS['yCoord']) {
-			
-			if ($_POST["guessX"] < $GLOBALS['xCoord']) {
+			else if ($_POST["guessY"] > $_SESSION['intHurkleY']) {
 				
-				$GLOBALS['hint'] = "Go Southeast";
-			}
-			
-			else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
+				if ($_POST["guessX"] <$_SESSION['intHurkleX']) {
+					
+					$GLOBALS['hint'] = "Go Northeast";
+				}
 				
-				$GLOBALS['hint'] = "Go Southwest";
+				else if ($_POST["guessX"] > $_SESSION['intHurkleX']) {
+					
+					$GLOBALS['hint'] = "Go Northwest";
+				}
 			}
-		}
-		else if ($_POST["guessY"] > $GLOBALS['yCoord']) {
-			
-			if ($_POST["guessX"] <$GLOBALS['xCoord']) {
-				
-				$GLOBALS['hint'] = "Go Northeast";
+			else {
+				$GLOBALS['hint'] = "Error?";
 			}
-			
-			else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
-				
-				$GLOBALS['hint'] = "Go Northwest";
-			}
+
 		}
 		else {
-			$GLOBALS['hint'] = "Not sure";
+			$GLOBALS['hint'] = "You Lose!";
 		}
+
+		
 
 	}
 
 }
-
 
 
 
