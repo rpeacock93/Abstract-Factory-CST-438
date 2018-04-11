@@ -24,6 +24,8 @@
 
 			 ?>
 
+
+			 <!-- Form action loads the game page -->
 			<form action="game.php">
 
 				<input id="button" type="submit" value="Start Game" >

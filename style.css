@@ -18,22 +18,6 @@
 	opacity: .9;
 }
 
-#info-container {
-	width: 650px;
-	height: 800px;
-	padding: 10px;
-	border: black solid 2px;
-	position: absolute;
-	top: 0; bottom: 0;
-	right: 0; left: 0;
-	margin: auto;
-	text-align: center;
-	background-color: #252621;
-	color: #FA2772;
-	font-family: 'Libre Baskerville', serif;
-	opacity: .9;
-}
-
 
 h1 {
 	font-size: 350%;
