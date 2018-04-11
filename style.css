@@ -4,9 +4,10 @@
 }
 
 #container {
-	width: 650px;
+	width: 700px;
 	height: 850px;
 	border: black solid 2px;
+	padding: 20px;
 	position: absolute;
 	top: 0; bottom: 0;
 	right: 0; left: 0;
