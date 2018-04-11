@@ -28,6 +28,7 @@
 			// So i could start styling the page
 			// $_POST['guessX'] = 5;
 			// $_POST['guessY'] = 5;
+			hidHurkle(); 
 			createLihrt();
 			getGuess();	
 

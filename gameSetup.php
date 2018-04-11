@@ -1,5 +1,9 @@
 <?php 
 
+$xCoord;
+$yCoord;
+$hint;
+
 
 
 function createLihrt() {
@@ -36,8 +40,8 @@ function createLihrt() {
 
 function hidHurkle() {
 
-	$xCoord = rand(1, 10);
-	$yCoord = rand(1, 10);
+	$GLOBALS['xCoord'] = rand(1, 10);
+	$GLOBALS['yCoord'] = rand(1, 10);
 
 }
 
@@ -46,11 +50,74 @@ function getGuess() {
 	$guessX = $_POST["guessX"];
 	$guessY = $_POST["guessY"];
 
+	giveHint();
+
 
 	echo '<span class="output"> Your guess: ', '( ', $_POST["guessX"], ' , ', $_POST["guessY"], ' ) </span><br>' ;
-	echo '<span class="output"> Hint: </span>' ;
+	echo '<span class="output"> Hide: ( '.$GLOBALS['xCoord'].' , '.$GLOBALS['yCoord'].' ) </span><br>';
+	echo '<span class="output"> Hint: '.$GLOBALS['hint'].'</span>';
 
-}	
+}
+
+function giveHint()	{
+
+	if ($_POST["guessX"] != $GLOBALS['xCoord'] && $_POST["guessY"] != $GLOBALS['yCoord']) {
+			if ($_POST["guessX"] == $GLOBALS['xCoord']) {
+				
+				if ($_POST["guessY"] > $GLOBALS['yCoord']) {
+					
+					$GLOBALS['hint'] = "Go South";
+				}
+				else if ($_POST["guessY"] < $GLOBALS['yCoord']) {
+					
+					$GLOBALS['hint'] = "Go North";
+				}
+			}
+			else if ($_POST["guessY"] == $GLOBALS['yCoord']) {
+				
+				if ($_POST["guessX"] < $GLOBALS['xCoord']) {
+					
+					$GLOBALS['hint'] = "Go East";
+				}
+				else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
+					
+					$GLOBALS['hint'] = "Go West";
+				}
+			}
+			else if ($_POST["guessY"] < $GLOBALS['yCoord']) {
+				
+				if ($_POST["guessX"] < $GLOBALS['xCoord']) {
+					
+					$GLOBALS['hint'] = "Go Northeast";
+				}
+				
+				else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
+					
+					$GLOBALS['hint'] = "Go Northwest";
+				}
+			}
+			else if ($_POST["guessY"] > $GLOBALS['yCoord']) {
+				
+				if ($_POST["guessX"] <$GLOBALS['xCoord']) {
+					
+					$GLOBALS['hint'] = "Go Southeast";
+				}
+				
+				else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
+					
+					$GLOBALS['hint'] = "Go Southwest";
+				}
+			}
+			else {
+				$GLOBALS['hint'] = "Not sure";
+			}
+			
+	}
+	else {
+		$GLOBALS['hint'] = "You Win";
+	}
+
+}
 
 
 
