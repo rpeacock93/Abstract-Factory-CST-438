@@ -1,8 +1,9 @@
 <?php 
 
-$xCoord;
-$yCoord;
 $hint;
+
+$GLOBALS['xCoord'] = 4;
+$GLOBALS['yCoord'] = 5;
 
 
 
@@ -64,11 +65,11 @@ function createLihrt() {
 function hideHurkle() {
 
 	// Hard Code Test
-	$GLOBALS['xCoord'] = 3;
-	$GLOBALS['yCoord'] = 5;
+	// $GLOBALS['xCoord'] = 3;
+	// $GLOBALS['yCoord'] = 5;
 
-	// $GLOBALS['xCoord'] = rand(1, 10);
-	// $GLOBALS['yCoord'] = rand(1, 10);
+	$GLOBALS['xCoord'] = rand(1, 10);
+	$GLOBALS['yCoord'] = rand(1, 10);
 
 }
 

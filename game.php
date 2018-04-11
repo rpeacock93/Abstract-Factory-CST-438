@@ -23,7 +23,6 @@
 
 			<?php 
 
-			hideHurkle();
 			createLihrt();
 			getGuess();	
 

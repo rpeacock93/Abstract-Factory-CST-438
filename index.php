@@ -21,7 +21,6 @@
 
 			<?php 
 
-				// hideHurkle();
 
 			 ?>
 
