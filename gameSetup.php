@@ -17,8 +17,8 @@ function createLihrt() {
 
 	echo "<span id='board'>";
 
-	for ($row = 0; $row < $arrlength; $row++) {
-	        for ($col = 0; $col < $arrlength; $col++) {
+	for ($col = 0; $col < $arrlength; $col++) {
+	        for ($row = 0; $row < $arrlength; $row++) {
 
 	        	if ($row == ($_POST["guessX"] -1) && $col == ($_POST["guessY"] - 1)) {
 
@@ -40,8 +40,12 @@ function createLihrt() {
 
 function hidHurkle() {
 
-	$GLOBALS['xCoord'] = rand(1, 10);
-	$GLOBALS['yCoord'] = rand(1, 10);
+	// $GLOBALS['xCoord'] = rand(1, 10);
+	// $GLOBALS['yCoord'] = rand(1, 10);
+
+	// Hard Code Test
+	$GLOBALS['xCoord'] = 3;
+	$GLOBALS['yCoord'] = 5;
 
 }
 
@@ -61,61 +65,66 @@ function getGuess() {
 
 function giveHint()	{
 
-	if ($_POST["guessX"] != $GLOBALS['xCoord'] && $_POST["guessY"] != $GLOBALS['yCoord']) {
-			if ($_POST["guessX"] == $GLOBALS['xCoord']) {
+	if(($_POST["guessX"] == $GLOBALS['xCoord']) && ($_POST["guessY"] == $GLOBALS['yCoord'])) {
+		$GLOBALS['hint'] = "You Win?";
+	}
+	else {
+		if ($_POST["guessX"] == $GLOBALS['xCoord']) {
+			
+			if ($_POST["guessY"] > $GLOBALS['yCoord']) {
 				
-				if ($_POST["guessY"] > $GLOBALS['yCoord']) {
-					
-					$GLOBALS['hint'] = "Go South";
-				}
-				else if ($_POST["guessY"] < $GLOBALS['yCoord']) {
-					
-					$GLOBALS['hint'] = "Go North";
-				}
-			}
-			else if ($_POST["guessY"] == $GLOBALS['yCoord']) {
-				
-				if ($_POST["guessX"] < $GLOBALS['xCoord']) {
-					
-					$GLOBALS['hint'] = "Go East";
-				}
-				else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
-					
-					$GLOBALS['hint'] = "Go West";
-				}
+				$GLOBALS['hint'] = "Go North";
 			}
 			else if ($_POST["guessY"] < $GLOBALS['yCoord']) {
 				
-				if ($_POST["guessX"] < $GLOBALS['xCoord']) {
-					
-					$GLOBALS['hint'] = "Go Northeast";
-				}
-				
-				else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
-					
-					$GLOBALS['hint'] = "Go Northwest";
-				}
+				$GLOBALS['hint'] = "Go South";
 			}
-			else if ($_POST["guessY"] > $GLOBALS['yCoord']) {
+		}
+		else if ($_POST["guessY"] == $GLOBALS['yCoord']) {
+			
+			if ($_POST["guessX"] < $GLOBALS['xCoord']) {
 				
-				if ($_POST["guessX"] <$GLOBALS['xCoord']) {
-					
-					$GLOBALS['hint'] = "Go Southeast";
-				}
-				
-				else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
-					
-					$GLOBALS['hint'] = "Go Southwest";
-				}
+				$GLOBALS['hint'] = "Go East";
 			}
-			else {
-				$GLOBALS['hint'] = "Not sure";
+			else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
+				
+				$GLOBALS['hint'] = "Go West";
+			}
+		}
+		else if ($_POST["guessY"] < $GLOBALS['yCoord']) {
+			
+			if ($_POST["guessX"] < $GLOBALS['xCoord']) {
+				
+				$GLOBALS['hint'] = "Go Southeast";
 			}
 			
+			else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
+				
+				$GLOBALS['hint'] = "Go Southwest";
+			}
+		}
+		else if ($_POST["guessY"] > $GLOBALS['yCoord']) {
+			
+			if ($_POST["guessX"] <$GLOBALS['xCoord']) {
+				
+				$GLOBALS['hint'] = "Go Northeast";
+			}
+			
+			else if ($_POST["guessX"] > $GLOBALS['xCoord']) {
+				
+				$GLOBALS['hint'] = "Go Northwest";
+			}
+		}
+		else {
+			$GLOBALS['hint'] = "Not sure";
+		}
+
 	}
-	else {
-		$GLOBALS['hint'] = "You Win";
-	}
+
+	
+
+
+	
 
 }
 

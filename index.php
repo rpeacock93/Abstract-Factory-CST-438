@@ -39,8 +39,8 @@
 
 
 			 <form action="index.php" method="post">
-	            <span class="guess">X: </span><input class="guess" type="text" name="guessX">
-	            <span class="guess">Y: </span><input class="guess" type="text" name="guessY"><br>
+	            <span class="guess">Col: </span><input class="guess" type="text" name="guessX">
+	            <span class="guess">Row: </span><input class="guess" type="text" name="guessY"><br>
 	            <br>
 	            <input id="button" type="submit">
 	        </form>
