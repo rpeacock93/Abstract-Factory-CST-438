@@ -6,6 +6,29 @@ $hint;
 
 
 
+function blankLihrt() {
+	$arrlength = 10;
+
+	$lihrt = array 
+	(
+		array(),array(),array(),array(),array(),
+		array(),array(),array(),array(),array()
+	);
+
+	echo "<span id='board'>";
+
+	for ($col = 0; $col < $arrlength; $col++) {
+	        for ($row = 0; $row < $arrlength; $row++) {
+	        	echo $lihrt[$row][$col] = '&#x2B1C;&nbsp;&nbsp;';
+	        }
+	        echo "<br>";
+	    }
+	    echo "</span>";
+
+	    echo "<br>";
+
+	}
+
 function createLihrt() {
 	$arrlength = 10;
 
@@ -38,7 +61,7 @@ function createLihrt() {
 
 	}
 
-function hidHurkle() {
+function hideHurkle() {
 
 	// Hard Code Test
 	$GLOBALS['xCoord'] = 3;
@@ -57,8 +80,8 @@ function getGuess() {
 	giveHint();
 
 
-	echo '<span class="output"> Your guess: ', '( ', $_POST["guessX"], ' , ', $_POST["guessY"], ' ) </span><br>' ;
-	echo '<span class="output"> Hide: ( '.$GLOBALS['xCoord'].' , '.$GLOBALS['yCoord'].' ) </span><br>';
+	echo '<span class="output"> Your guess: ', '( ', $_POST["guessY"], ' , ', $_POST["guessX"], ' ) </span><br>' ;
+	echo '<span class="output"> Hide: ( '.$GLOBALS['yCoord'].' , '.$GLOBALS['xCoord'].' ) </span><br>';
 	echo '<span class="output"> Hint: '.$GLOBALS['hint'].'</span>';
 
 }
@@ -66,7 +89,7 @@ function getGuess() {
 function giveHint()	{
 
 	if(($_POST["guessX"] == $GLOBALS['xCoord']) && ($_POST["guessY"] == $GLOBALS['yCoord'])) {
-		$GLOBALS['hint'] = "You Win?";
+		$GLOBALS['hint'] = "You Win!";
 	}
 	else {
 		if ($_POST["guessX"] == $GLOBALS['xCoord']) {

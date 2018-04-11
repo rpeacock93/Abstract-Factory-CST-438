@@ -1,5 +1,6 @@
 <?php include('gameLogic.php'); ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,43 +11,28 @@
 </head>
 	<body>
 
+		<div id="info-container" >
 
-
-		<div id="container" >
-
-			
 			<h1 class="strokeme">Find Hurkle</h1>
 
-			<span class="output">Wins: Losses: </span>
-			<br>
-			<br>
+			<h2>Game Description</h2>
+
+			<p>Hurkle, a happy little beast, lives on the planet Lirht which is a flat world divided into 10 rows and columns. The Hurkle likes to hide randomly in one of those 100 plots on Lirht. It is the user's job to find the Hurkle. The player will enter a horizontal (x) coordinate, followed by a vertical (y) coordinate. The Hurkle will then give a clue as to where it is hiding</p>
 
 			<?php 
 
-
-			// Having trouble with a defualt POST value, but needed to get something going
-			// So i could start styling the page
-			// $_POST['guessX'] = 5;
-			// $_POST['guessY'] = 5;
-			hidHurkle(); 
-			createLihrt();
-			getGuess();	
+				// hideHurkle();
 
 			 ?>
 
-			 <br>
-			 <br>
+			<form action="blank.php">
 
+				<input id="button" type="submit" value="Start Game">
 
-			 <form action="index.php" method="post">
-	            <span class="guess">Col: </span><input class="guess" type="text" name="guessX">
-	            <span class="guess">Row: </span><input class="guess" type="text" name="guessY"><br>
-	            <br>
-	            <input id="button" type="submit">
-	        </form>
+			</form>
 
-			 
-
+			
+				
 		</div>
 
 	</body>
