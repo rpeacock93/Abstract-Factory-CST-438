@@ -1,5 +1,6 @@
 <?php include('gameLogic.php'); 			
 
+
 	if (!empty($_POST['guessX'])) {
 		$_SESSION['intPlayerMoves']--;
 		giveHint();
@@ -48,7 +49,7 @@
 	            <span class="guess">Row: </span><input class="guess" type="text" name="guessY">
 	            <span class="guess">Col: </span><input class="guess" type="text" name="guessX"><br>
 	            <br>
-	            <input id="button" type="submit" value="Look">
+	            <input id="button" type="submit" value="Look"> &nbsp;&nbsp;&nbsp;
 	        </form>
 
 		</div>

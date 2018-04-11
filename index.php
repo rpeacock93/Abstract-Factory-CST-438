@@ -26,7 +26,7 @@
 
 			<form action="game.php">
 
-				<input id="button" type="submit" value="Start Game">
+				<input id="button" type="submit" value="Start Game" >
 
 			</form>
 
