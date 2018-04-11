@@ -11,16 +11,16 @@ function Reset_All (){
 	$_SESSION['intHurkleX'] = 0;
 	$_SESSION['intHurkleY'] = 0;
 	$_SESSION['intPlayerMoves'] = 7;
-	$_SESSION['intPlayerWin'] = false;
+	$_SESSION['boolPlayerWin'] = false;
 }
 
 	session_start();
 	
 	/*Initialize variables*/
-	if(!isset($_SESSION['intPlayerScore'])) {
+	if(!isset($_SESSION['intPlayerWins'])) {
 		$_SESSION['intPlayerWins'] = 0;
 	}
-	if(!isset($_SESSION['intPlayerScore'])) {
+	if(!isset($_SESSION['intPlayerLoses'])) {
 		$_SESSION['intPlayerLoses'] = 0;
 	}
 	if(!isset($_SESSION['intPlayerMoves'])) {
@@ -83,8 +83,6 @@ function getGuess() {
 	$guessX = $_POST["guessX"];
 	$guessY = $_POST["guessY"];
 
-	giveHint();
-
 
 	echo '<span class="output"> Your guess: ', '( ', $_POST["guessY"], ' , ', $_POST["guessX"], ' ) </span><br>' ;
 	echo '<span class="output"> Hide: ( '.$_SESSION['intHurkleY'].' , '.$_SESSION['intHurkleX'].' ) </span><br>';
@@ -96,9 +94,9 @@ function giveHint()	{
 
 	if(($_POST["guessX"] == $_SESSION['intHurkleX']) && ($_POST["guessY"] == $_SESSION['intHurkleY'])) {
 		$GLOBALS['hint'] = "You Win!";
+		$_SESSION['intPlayerWins']++;
 	}
 	else {
-		$_SESSION['intPlayerMoves']--;
 		if ($_SESSION['intPlayerMoves'] > 0) {
 			if ($_POST["guessX"] == $_SESSION['intHurkleX']) {
 				
@@ -153,6 +151,8 @@ function giveHint()	{
 		}
 		else {
 			$GLOBALS['hint'] = "You Lose!";
+			$_SESSION['intPlayerLoses']++;
+			Reset_All();
 		}
 
 		

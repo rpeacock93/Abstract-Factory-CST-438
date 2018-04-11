@@ -1,4 +1,12 @@
-<?php include('gameLogic.php'); ?>
+<?php include('gameLogic.php'); 			
+
+	if (!empty($_POST['guessX'])) {
+		$_SESSION['intPlayerMoves']--;
+		giveHint();
+	}
+	else {
+		Reset_All();
+	}
 
 ?>
 
@@ -16,11 +24,12 @@
 
 			<h1 class="strokeme">Find Hurkle</h1>
 
-			
-			<br>
-			<br>
-
+		
 			<?php 
+
+			echo '<span class="output"> Wins: '.$_SESSION['intPlayerWins'].' Loses: '.$_SESSION['intPlayerLoses'].'</span><br><br>';
+
+			echo '<span class="output"> Player Moves: '.$_SESSION['intPlayerMoves'].'</span><br><br>';
 
 			drawLihrt();
 
@@ -28,18 +37,10 @@
 				getGuess();	
 			}
 			else {
-				echo '<span class="output">Take a guess</span><br>';
-				Reset_All();
+				echo '<span class="output"> Take a Look</span><br>';
 			}
-
-				
-
-			echo '<span class="output"> Player Moves: '.$_SESSION['intPlayerMoves'].'</span>';
-
 		
 			 ?>
-
-			 <br>
 			 <br>
 
 
