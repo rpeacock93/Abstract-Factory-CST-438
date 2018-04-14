@@ -3,7 +3,7 @@
 	
 	class gameBoard {
 
-		public var $length = 10;
+		public $length = 10;
 
 		public $lirht = array (
 			array(),array(),array(),array(),array(),
@@ -17,8 +17,8 @@
 
 
 		function fillBoard() {
-			for ($col = 0; $col < $_GLOBAL['length']; $col++) {
-	        	for ($row = 0; $row < $_GLOBAL['length']; $row++) {
+			for ($col = 0; $col < $length; $col++) {
+	        	for ($row = 0; $row < $length; $row++) {
 	        		$lihrt[$row][$col] = $tile;
 	        	}
 	       
@@ -27,8 +27,8 @@
 
 
 		function hurkleIn($userRow, $userCol) {
-			for ($col = 0; $col < $_GLOBAL['length']; $col++) {
-	        	for ($row = 0; $row < $_GLOBAL['length']; $row++) {
+			for ($col = 0; $col < $length; $col++) {
+	        	for ($row = 0; $row < $length; $row++) {
 	        		if ($row == ($userRow -1) && $col == ($userCol - 1)) {
 	        			$lihrt[$row][$col] = $hurkle;
 	        		}
@@ -41,8 +41,8 @@
 		function printBoard() {
 
 			echo '<span id="board"';
-			for ($col = 0; $col < $_GLOBAL['length']; $col++) {
-	        	for ($row = 0; $row < $_GLOBAL['length']; $row++) {
+			for ($col = 0; $col < $length; $col++) {
+	        	for ($row = 0; $row < $length; $row++) {
 	        		 echo $lihrt[$row][$col];
 	        	}
 
