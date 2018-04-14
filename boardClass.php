@@ -10,9 +10,9 @@
 			array(),array(),array(),array(),array()
 		);
 
-		public $tile = '&#x2B1C;&nbsp;&nbsp;';
+		public $tile = '<span id="">&#9723;&nbsp;&nbsp</span>;';
 
-		public $hurkle = '&#x2B1B;&nbsp;&nbsp;';
+		public $hurkle = '&#9724;&nbsp;&nbsp;';
 
 
 
