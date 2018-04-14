@@ -7,10 +7,7 @@
 	width: 650px;
 	height: 850px;
 	border: black solid 2px;
-	position: absolute;
-	top: 0; bottom: 0;
-	right: 0; left: 0;
-	margin: auto;
+	margin: 0 auto;
 	text-align: center;
 	background-color: #252621;
 	color: #FA2772;
