@@ -17,9 +17,9 @@
 
 
 		function fillBoard() {
-			for ($col = 0; $col < $length; $col++) {
-	        	for ($row = 0; $row < $length; $row++) {
-	        		$lihrt[$row][$col] = $tile;
+			for ($col = 0; $col < $this->length; $col++) {
+	        	for ($row = 0; $row < $this->length; $row++) {
+	        		$this->lihrt[$row][$col] = $this->tile;
 	        	}
 	       
 	    	}
@@ -27,10 +27,10 @@
 
 
 		function hurkleIn($userRow, $userCol) {
-			for ($col = 0; $col < $length; $col++) {
-	        	for ($row = 0; $row < $length; $row++) {
+			for ($col = 0; $col < $this->length; $col++) {
+	        	for ($row = 0; $row < $this->length; $row++) {
 	        		if ($row == ($userRow -1) && $col == ($userCol - 1)) {
-	        			$lihrt[$row][$col] = $hurkle;
+	        			$this->lihrt[$row][$col] = $this->hurkle;
 	        		}
 	        	}
 	       
@@ -41,9 +41,9 @@
 		function printBoard() {
 
 			echo '<span id="board"';
-			for ($col = 0; $col < $length; $col++) {
-	        	for ($row = 0; $row < $length; $row++) {
-	        		 echo $lihrt[$row][$col];
+			for ($col = 0; $col < $this->length; $col++) {
+	        	for ($row = 0; $row < $this->length; $row++) {
+	        		 echo $this->lihrt[$row][$col];
 	        	}
 
 	        	echo "<br>";
