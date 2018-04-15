@@ -32,7 +32,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link type="text/css" rel="stylesheet" href="Brooks_CST336_Assignment3.css">
+	<link type="text/css" rel="stylesheet" href="style.css">
 	<meta charset="utf-8">
 
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
