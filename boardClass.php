@@ -1,22 +1,20 @@
 <?php 
 
-class boardClass {
+	class boardClass {
 		public function Draw_Table($intPlayerX, $intPlayerY, $intHurkleX, $intHurkleY, $intPlayerScore, $intPlayerMoves){
-	
+			#Displays the game board and scoreboard.
+			
 			$intYCounter = 0;
 			$intXCounter = 0;
 			$intHurkleXDistance = 0;
 			$intHurkleYDistance = 0;
-			/*$intPlayerX = $_SESSION['objPlayer']->getXPos();
-			$intPlayerY = $_SESSION['objPlayer']->getYPos();
-			$intHurkleX = $_SESSION['objHurkle']->getXPos();
-			$intHurkleY = $_SESSION['objHurkle']->getYPos();*/
 			
 			if (($intHurkleX == $intPlayerX) and ($intHurkleY == $intPlayerY)) {
 				if (($intPlayerX != 0) and ($intPlayerY != 0)) {
 					echo "You've found the Hurkle!  </br>";
 				}
 			} else {
+				# Give hint for the distance and direction.
 				echo "You hear the Hurkle somewhere ";
 				$intHurkleYDistance = abs($intHurkleY - $intPlayerY);
 				$intHurkleXDistance = abs($intHurkleX - $intPlayerX);
@@ -39,6 +37,7 @@ class boardClass {
 				echo " of you.</br></br>";
 			}
 		
+			# Draw the table.
 			echo "</br><table id=\"table1\" border=\"1\">";
 			for ($intYCounter=0; $intYCounter<=10; $intYCounter++) {
 				echo "<tr>";
@@ -59,25 +58,17 @@ class boardClass {
 			}
 			echo "</table></br>";
 			
+			# Draw the scoreboard.
 			echo "</br>";
-			# echo "</br>Hurkle X: ", $_SESSION['objHurkle']->getXPos();
-			# echo "</br>Hurkle Y: ", $_SESSION['objHurkle']->getYPos();
-			# echo "</br>Player X: ", $_SESSION['objPlayer']->getXPos();
-			# echo "</br>Player Y: ", $_SESSION['objPlayer']->getYPos();
-			# echo "</br>Player Score: ", $_SESSION['objPlayer']->getScore();
-			# echo "</br>Player Moves: ", $_SESSION['objPlayer']->getMoves();
-			# echo "</br>Player Moves Remaining: ", 7 - $_SESSION['objPlayer']->getMoves();
-			echo "</br>Hurkle X: ", $intHurkleX;
-			echo "</br>Hurkle Y: ", $intHurkleY;
-			echo "</br>Player X: ", $intPlayerX;
-			echo "</br>Player Y: ", $intPlayerY;
+			# echo "</br>Hurkle X: ", $intHurkleX;
+			# echo "</br>Hurkle Y: ", $intHurkleY;
+			# echo "</br>Player X: ", $intPlayerX;
+			# echo "</br>Player Y: ", $intPlayerY;
 			echo "</br>Player Score: ", $intPlayerScore;
-			echo "</br>Player Moves: ", $intPlayerMoves;
+			# echo "</br>Player Moves: ", $intPlayerMoves;
 			echo "</br>Player Moves Remaining: ", 7 - $intPlayerMoves;
 			echo "</br></br>";
 		}
 	}
-
-
 
  ?>
