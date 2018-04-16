@@ -1,3 +1,4 @@
+<?php
 	class gameClass {
 		# Validate the position entry.
 		public function evaluatePosition($intValue){
@@ -27,3 +28,4 @@
 			}
 		}
 	}
+?>
