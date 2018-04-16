@@ -11,11 +11,11 @@
 			
 			if (($intHurkleX == $intPlayerX) and ($intHurkleY == $intPlayerY)) {
 				if (($intPlayerX != 0) and ($intPlayerY != 0)) {
-					echo "You've found the Hurkle!  </br>";
+					echo "<h3>You've found the Hurkle!  </h3></br>";
 				}
 			} else {
 				# Give hint for the distance and direction.
-				echo "You hear the Hurkle somewhere ";
+				echo "<h3> You hear the Hurkle somewhere ";
 				$intHurkleYDistance = abs($intHurkleY - $intPlayerY);
 				$intHurkleXDistance = abs($intHurkleX - $intPlayerX);
 				if (($intHurkleXDistance > 6) or ($intHurkleYDistance > 6)) {
@@ -34,22 +34,25 @@
 				} elseif ($intHurkleX > $intPlayerX) {
 					echo "east";
 				}
-				echo " of you.</br></br>";
+				echo " of you.</h3>";
 			}
+
+			echo "<h2 class='hint'>Player Score:<span class='score'> ", $intPlayerScore, "</span>";
+			echo "&nbsp; Player Moves Remaining: <span class='score'> ", 7 - $intPlayerMoves, "</span> </h2> <br>";
 		
 			# Draw the table.
-			echo "</br><table id=\"table1\" border=\"1\">";
+			echo "<table id=\"table1\" border=\"1\">";
 			for ($intYCounter=0; $intYCounter<=10; $intYCounter++) {
 				echo "<tr>";
 				for ($intXCounter=0; $intXCounter<=10; $intXCounter++) {
 					if ($intYCounter == 0) {
-						echo "<td align=\"center\" class=\"forest\">", print_r($intXCounter,1), "</td>";
+						echo "<td align=\"center\" class=\"border tile\">", print_r($intXCounter,1), "</td>";
 					} elseif ($intXCounter == 0) {
-						echo "<td align=\"center\" class=\"forest\">", print_r($intYCounter,1), "</td>";
+						echo "<td align=\"center\" class=\"border tile\">", print_r($intYCounter,1), "</td>";
 					} elseif (($intXCounter == $intPlayerX) and ($intYCounter == $intPlayerY)) {
-						echo "<td align=\"center\" class=\"player1\">0</td>";
+						echo "<td align=\"center\" class=\"hurkle tile\"></td>";
 					} else {
-						echo "<td align=\"center\" class=\"farmland\">;</td>";
+						echo "<td align=\"center\" class=\"grass tile\"></td>";
 					}
 					if ($intXCounter == 10) {
 						echo "</tr>";
@@ -59,15 +62,13 @@
 			echo "</table></br>";
 			
 			# Draw the scoreboard.
-			echo "</br>";
+			# echo "</br>";
 			# echo "</br>Hurkle X: ", $intHurkleX;
 			# echo "</br>Hurkle Y: ", $intHurkleY;
 			# echo "</br>Player X: ", $intPlayerX;
 			# echo "</br>Player Y: ", $intPlayerY;
-			echo "</br>Player Score: ", $intPlayerScore;
 			# echo "</br>Player Moves: ", $intPlayerMoves;
-			echo "</br>Player Moves Remaining: ", 7 - $intPlayerMoves;
-			echo "</br></br>";
+			# echo "</br></br>";
 		}
 	}
 

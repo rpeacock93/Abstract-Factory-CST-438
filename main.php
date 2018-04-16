@@ -37,6 +37,7 @@
 <html lang="en">
 <head>
 	<link type="text/css" rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Audiowide|Contrail+One|PT+Mono" rel="stylesheet">
 	<meta charset="utf-8">
 
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
@@ -55,19 +56,28 @@
 </head>
 
 <body>
+	<div id="title-bar"><h1>Find the Hurkle!</h1></div>
+	<div id="student-bar">
+		<span id="student-noBorder">Brian Brooks</span>
+		<span id="student">Devorah Akhamzadeh</span>
+		<span id="student">Seema Khan</span>
+		<span id="student">Ryan Peacock</span>
+	</div>
   <div id="wrapHome">
-	<h1>Find the Hurkle!</h1>
-	<p>The Hurkle is a happy little beast that lives on the planet Lirht and likes to play Hide and Seek.  
+	<p id="description">The Hurkle is a happy little beast that lives on the planet Lirht and likes to play Hide and Seek.  
 	   Lihrt is a flat world divided into 10 rows and columns.  Can you find where the Hurkle is hiding in less than 7 guesses?</p>
+
+	   <br>
+
 	<form method="get">
-		Enter Player's X coordinate (1-10): <input type="text" name="varPlayerX"></br>
-		Enter Player's Y coordinate (1-10): <input type="text" name="varPlayerY"></br>
+		<span class="input-display" >Enter X <sub>(1-10)</sub>:</span> <input class="text-input" type="text" name="varPlayerX"> &nbsp;
+		<span class="input-display">Enter Y <sub>(1-10)</sub>:</span> <input class="text-input" type="text" name="varPlayerY"></br>
 		</br></br>
-		<input type="submit" name="Play" value="Look for the Hurkle!">
-		<input type="submit" name="Refresh" value="Refresh">
-		<input type="submit" name="Reset" value="Reset All">
+		<input class="button" type="submit" name="Play" value="Look for the Hurkle!">
+		<input class="button" type="submit" name="Refresh" value="Refresh">
+		<input class="button" type="submit" name="Reset" value="Reset All">
 	</form>
-	</br></br>
+	
 
 	<?php
 
@@ -89,7 +99,7 @@
 			if (is_numeric($_GET['varPlayerX'])){
 				$_SESSION['objPlayer']->setXPos($_SESSION['objGame']->evaluatePosition(intval($_GET['varPlayerX'])));
 			} else {
-				echo "Player X: Entries must be numeric; setting to default (0).</br></br>";
+				echo "<h3>Player X: Entries must be numeric; setting to default (0).</h3>";
 				$_SESSION['objPlayer']->setXPos(0);
 			}
 		}
@@ -97,7 +107,7 @@
 			if (is_numeric($_GET['varPlayerY'])){
 				$_SESSION['objPlayer']->setYPos($_SESSION['objGame']->evaluatePosition(intval($_GET['varPlayerY'])));
 			} else {
-				echo "Player Y: Entries must be numeric; setting to default (0).</br></br>";
+				echo "<h3>Player Y: Entries must be numeric; setting to default (0).</h3>";
 				$_SESSION['objPlayer']->setYPos(0);
 			}
 		}
@@ -115,14 +125,14 @@
 												  $_SESSION['objHurkle']->getYPos(),
 												  $_SESSION['objPlayer']->getMoves()) == 1){
 			$_SESSION['objPlayer']->setScore($_SESSION['objPlayer']->getScore() + 1);
-			echo "You've found the Hurkle!  </br>";
+			echo "<h3>You've found the Hurkle! </h3>";
 			Reset_All();
 		} elseif ($_SESSION['objGame']->evaluateWinLoss($_SESSION['objPlayer']->getXPos(),
 												  $_SESSION['objPlayer']->getYPos(),
 												  $_SESSION['objHurkle']->getXPos(),
 												  $_SESSION['objHurkle']->getYPos(),
 												  $_SESSION['objPlayer']->getMoves()) == 2){
-			echo "You didn't find the Hurkle!  Try again!</br>";
+			echo "<h3>You didn't find the Hurkle!  Try again!</h3>";
 			Reset_All();
 		}
 

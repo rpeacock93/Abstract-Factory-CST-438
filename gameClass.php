@@ -3,7 +3,7 @@
 		# Validate the position entry.
 		public function evaluatePosition($intValue){
 			if (($intValue < 1) or ($intValue > 10)) {
-				echo "Player X position values must be between 1 and 10; setting to default (0).</br></br>";
+				echo "<h3>Player X position values must be between 1 and 10; setting to default (0).</h3>";
 				return 0;
 			} else {
 				return $intValue;
