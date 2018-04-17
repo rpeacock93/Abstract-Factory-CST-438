@@ -1,0 +1,64 @@
+#board {
+	font-size: 175%;
+	color: #66D9EF;
+}
+
+#container {
+	width: 650px;
+	height: 850px;
+	border: black solid 2px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #252621;
+	color: #FA2772;
+	font-family: 'Libre Baskerville', serif;
+	opacity: .9;
+}
+
+
+h1 {
+	font-size: 350%;
+	color: #AE81FF;
+}
+
+.strokeme
+{
+    text-shadow:
+    -1px -1px 0 #000,
+    9px -1px 0 #000,
+    -1px 1px 0 #000,
+    9px 1px 0 #000;  
+}
+
+body {
+	background-image: url('rocks.png');
+}
+
+#button {
+	background-color: #48483E;
+	color: #A7E22E;
+	opacity: .7;
+	font-size: 150%;
+}
+
+.output {
+	font-size: 150%;
+	color: #E6DB74;
+}
+
+#hurkle {
+	color: #F92672;
+}
+
+input[type="text"] {
+	width: 40px;
+	height: 30px;
+	background-color: #45473e;
+	text-align: center
+}
+
+.guess {
+	font-size: 150%;
+	color: #FD971F;
+	font-weight: bolder;
+}
