@@ -1,17 +1,44 @@
-var userData = [
-    {'name':'admin', 'userIndex' : 1, 'username': 'admin', 'password': 'adminpassword', 'admin' : 1},
-    {'name':'user1', 'userIndex' : 2, 'username': 'user1', 'password': 'password1', 'admin' : 0},
-    {'name':'user2', 'userIndex' : 3, 'username': 'user2', 'password': 'password2', 'admin' : 0},
-    {'name':'user3', 'userIndex' : 4, 'username': 'user3', 'password': 'password3', 'admin' : 0},
-    {'name':'user4', 'userIndex' : 5, 'username': 'user4', 'password': 'password4', 'admin' : 0},
-    {'name':'user5', 'userIndex' : 6, 'username': 'user5', 'password': 'password5', 'admin' : 0},
-    {'name':'user6', 'userIndex' : 7, 'username': 'user6', 'password': 'password6', 'admin' : 0},
-    {'name':'user7', 'userIndex' : 8, 'username': 'user7', 'password': 'password7', 'admin' : 0},
-    {'name':'user8', 'userIndex' : 9, 'username': 'user8', 'password': 'password8', 'admin' : 0},
-    {'name':'user9', 'userIndex' : 10, 'username': 'user9', 'password': 'password9', 'admin' : 0},
-    ]
-
-localStorage.setItem('userDataLocalStorage', JSON.stringify(userData));
+// Author: Seema Khan
+// The Design Patter implemented is the Factory Method: http://www.dofactory.com/javascript/factory-method-design-pattern
+function Factory() {
+    this.createEmployee = function (type, index) {
+        var employee;
+ 
+        if (type === "admin") {
+            employee = new Admin(index);
+        } else if (type === "common") {
+            employee = new Common(index);
+        }
+ 
+        employee.type = type;
+ 
+        employee.say = function () {
+        	if(this.adminPrivilege == 1) {
+            	log.add("User has admin privileges!");
+        	} else {
+        		log.add("User does not have admin privileges.");
+        	}
+        }
+ 
+        return employee;
+    }
+}
+ 
+var Admin = function (index) {
+    this.name = "admin";
+    this.userIndex = index;
+    this.username = "admin";
+    this.password = "adminpassword";
+    this.adminPrivilege = 1;
+};
+ 
+var Common = function (index) {
+    this.name = "user"+(index-1);
+    this.userIndex = index;
+    this.username = "user"+(index-1);
+    this.password = "password"+(index-1);
+    this.adminPrivilege = 0;
+};
 
 
 $(function () {
@@ -21,6 +48,25 @@ $(function () {
 
 
 $("#login").click(function() {
+	var employees = [];
+    var factory = new Factory();
+ 
+    employees.push(factory.createEmployee("admin",1));
+    employees.push(factory.createEmployee("common",2));
+    employees.push(factory.createEmployee("common",3));
+    employees.push(factory.createEmployee("common",4));
+    employees.push(factory.createEmployee("common",5));
+    employees.push(factory.createEmployee("common",6));
+    employees.push(factory.createEmployee("common",7));
+    employees.push(factory.createEmployee("common",8));
+    employees.push(factory.createEmployee("common",9));
+    employees.push(factory.createEmployee("common",10));
+
+    var userDataString = JSON.stringify(employees);
+    localStorage.setItem('userDataLocalStorage', userDataString);
+    userData = JSON.parse(userDataString);
+    console.log(userData); 
+
     var invalidAccountWarning = document.getElementById("invalid_account_warning");
     invalidAccountWarning.style.display = "none";
     var username = document.getElementById("inputted_username").value;
