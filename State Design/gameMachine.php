@@ -17,10 +17,10 @@ class gameMachine {
 	public function gameMachine() {
 
 
-		$this->beginningState = new beginningState;
-		$this->guessinggState = new guessingState;
-		$this->winState = new winState;
-		$this->loseState = new loseState;
+		$this->beginningState = new beginningState($this);
+		$this->guessinggState = new guessingState($this);
+		$this->winState = new winState($this);
+		$this->loseState = new loseState($this);
 
 		$this->gameState = $beginningState;
 
