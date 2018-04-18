@@ -1,0 +1,152 @@
+
+body {
+ 	background: #494949;
+ 	padding: 0;
+ 	margin: 0;
+}
+#title-bar {
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+
+#student-bar {
+	width: 100%;
+	height: 20px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 2px;
+}
+
+#student {
+	font-family: 'PT Mono', monospace;
+	color: #ef8900;
+	border-left: 1px #CCCCCC solid;
+	height: 100%;
+	padding: 0px 15px 0 15px;
+}
+
+#student-noBorder {
+	color: #ef8900;
+	border: none !important;
+	height: 100%;
+	padding: 0px 15px 0 15px;
+}
+
+.text-input {
+	font-size: 20px;
+	width: 50px;
+	background-color: #494949;
+	color: #FD971F;
+	text-align: center;
+
+
+}
+
+h1 {
+	padding: 0;
+	margin: 0;
+	font-family: 'Contrail One', cursive;
+	font-size: 50px;
+	font-weight:bold;
+	color: #ef8900;
+}
+
+.input-display {
+	font-family: 'Contrail One', cursive;
+	font-size:25px;
+
+}
+h3 {
+	color: #ef8900;
+	font-family: 'Contrail One', cursive;
+	text-align:center;
+	font-size: 20px;
+
+
+}
+a:link {
+	color:white;	
+}
+a:visited {
+	color:gold;
+}
+
+form {
+	text-align: center;
+}
+
+h2 {
+	font-family: 'PT Mono', monospace;
+	font-size: 15px;
+	text-align: center;
+}
+
+.score {
+	color: #ef8900;
+	font-weight: bold;
+}
+
+
+#description {
+	font-size: 15px;
+	font-family: 'PT Mono', monospace;
+	font-style: italic;
+
+}
+
+.button {
+	padding: 4px;
+	font-family: 'Audiowide', cursive;
+	background-color: #5e5e5e;
+	color: #A7E22E;
+	font-size: 15px;
+}
+
+#wrapHome {
+	width:900px;
+	margin:0px auto;
+	padding:10px;
+	overflow:auto;
+	color: #E6DB74;
+}
+#table1 {
+	padding:20px;
+	border:solid black 2px;
+	border-collapse:collapse;
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	table-layout:fixed;
+}
+
+.tile {
+	width: 32px;
+	height: 40px;
+
+}
+
+.hurkle {
+	background-image: url('Images/hurkle.png');
+	background-size: auto;
+	background-position: bottom;
+	background-size: 65px;
+	font-size:16px;
+	color: #000000;
+}
+
+.border {
+	background-image: url('Images/dirt.png');
+	font-size:20px;
+	color: #ef8900;
+	font-weight: bold;
+
+}
+.grass {
+	background-image: url('Images/grass.png');
+	font-size:16px;
+	color: #000000;
+	border: solid black 2px;
+}
