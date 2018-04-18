@@ -42,8 +42,8 @@ button:hover {
 }
 
 /* login image */
-img.loginImage {
-    width: 40%;
+.loginImage {
+    width: 5px;
     border-radius: 50%;
 }
 
